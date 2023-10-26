@@ -6,8 +6,6 @@
   --baseGray-80: #4a5660;
 }
 
-/* Dark Theme */
-
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +21,15 @@ body {
   height: 100%;
 }
 
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .container {
   margin: auto;
   background-color: #ffffff;
@@ -31,7 +38,6 @@ body {
   align-items: center;
   justify-content: center;
   max-width: fit-content;
-  padding: 50px;
 }
 
 .calendar {
@@ -45,6 +51,24 @@ body {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 2px 16px 19px 0px #00000017;
+}
+
+#darkThemeButton {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 0;
+
+  position: relative;
+  right: 20px;
+  bottom: 20px;
+}
+
+.themeButton-light {
+  background: url(../images/light-mode.png);
 }
 
 .display-month-year {
@@ -162,4 +186,30 @@ body {
 
 .days li:hover {
   background-color: aqua;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color:  var(--gray-1);
+}
+
+.dark-theme .month-year-name {
+  color: #fff;
+}
+
+.dark-theme .days li {
+  color: #fff;
+  background-color: #464646;
+}
+
+.dark-theme .days li:hover, .dark-theme .container {
+  background-color: var(--gray-1);
+}
+
+.dark-theme .calendar, .dark-theme .icons {
+  background-color: #464646;
+}
+
+.dark-theme .themeButton-light {
+  background: url(../images/dark-mode.png);
 }

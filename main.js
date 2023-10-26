@@ -4,6 +4,8 @@ const prevMonthButton = document.getElementById("prevMonth");
 const nextMonthButton = document.getElementById("nextMonth");
 const currentMonthYear = document.getElementById("currentMonthYear");
 const calendarDays = document.getElementById("calendarDays");
+const darkThemeButton = document.getElementById("darkThemeButton");
+let isDarkTheme = false;
 
 // Function to update the calendar display
 function updateCalendar() {
@@ -46,6 +48,28 @@ function updateCalendar() {
 }
 updateCalendar();
 
+// Function to toggle the dark theme
+function toggleDarkTheme() {
+    isDarkTheme = !isDarkTheme;
+    if (isDarkTheme) {
+        document.body.classList.add("dark-theme");
+    } else {
+        document.body.classList.remove("dark-theme");
+    }
+
+    // Store the theme in local storage
+    localStorage.setItem("darkTheme", isDarkTheme);
+}
+
+// Dark theme before refresh window then this function will be work
+function loadTheme() {
+    isDarkTheme = localStorage.getItem("darkTheme") === "true";
+    if (isDarkTheme) {
+        document.body.classList.add("dark-theme");
+    }
+}
+loadTheme();
+
 // Event listeners for previous and next month buttons
 prevMonthButton.addEventListener("click", function () {
     month--;
@@ -55,4 +79,9 @@ prevMonthButton.addEventListener("click", function () {
 nextMonthButton.addEventListener("click", function () {
     month++;
     updateCalendar();
+});
+
+// Event listener for toggle theme button
+darkThemeButton.addEventListener("click", function (e) {
+    toggleDarkTheme();
 });

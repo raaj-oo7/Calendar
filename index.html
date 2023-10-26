@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="icon" href="./images/Calendar.png" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Calendar</title>
 </head>
-<body>
-    <div class="container">
-        <div class="calendar">
-            <div class="display-month-year">
-                <button class="icons" id="prevMonth">
-                    <img src="./images/arrow-previous.svg" />
-                </button>
-                <div class="month-year-name" id="currentMonthYear"></div>
-                <button class="icons" id="nextMonth">
-                    <img src="images/arrow-next.svg" />
-                </button>
+
+<body id="darkTheme">
+    <div class="app">
+
+        <div class="container">
+            <div class="calendar">
+                <div class="display-month-year">
+                    <button class="icons" id="prevMonth">
+                        <img src="./images/arrow-previous.svg" />
+                    </button>
+                    <div class="month-year-name" id="currentMonthYear"></div>
+                    <button class="icons" id="nextMonth">
+                        <img src="images/arrow-next.svg" />
+                    </button>
+                </div>
+                <ul class="weekday-title">
+                    <li class="weekday-title-name">SUN</li>
+                    <li class="weekday-title-name">MON</li>
+                    <li class="weekday-title-name">TUE</li>
+                    <li class="weekday-title-name">WED</li>
+                    <li class="weekday-title-name">THU</li>
+                    <li class="weekday-title-name">FRI</li>
+                    <li class="weekday-title-name">SAT</li>
+                </ul>
+                <ul class="days" id="calendarDays"></ul>
             </div>
-            <ul class="weekday-title">
-                <li class="weekday-title-name">SUN</li>
-                <li class="weekday-title-name">MON</li>
-                <li class="weekday-title-name">TUE</li>
-                <li class="weekday-title-name">WED</li>
-                <li class="weekday-title-name">THU</li>
-                <li class="weekday-title-name">FRI</li>
-                <li class="weekday-title-name">SAT</li>
-            </ul>
-            <ul class="days" id="calendarDays"></ul>
         </div>
-    <!-- </div> -->
+        <div>
+            <button class="themeButton-light" id="darkThemeButton"></button>
+        </div>
+    </div>
     <script src="./main.js"></script>
 </body>
+
 </html>
