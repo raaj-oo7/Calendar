@@ -21,18 +21,24 @@ function updateCalendar() {
     let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-    //  previous and next month's date repeat in current month's dates are empty spaces
+    // Create the previous month's days
+    let prevMonthLastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+    let prevMonthDays = prevMonthLastDay.getDate();
+
     for (let i = firstDay.getDay(); i > 0; i--) {
-        const emptySpace = document.createElement("li");
-        calendarDays.appendChild(emptySpace);
+        const day = document.createElement("li");
+        day.textContent = prevMonthDays - i + 1;
+        day.classList.add("date-inactive");
+        calendarDays.appendChild(day);
     }
 
     // Create the current month's days
     for (let i = 1; i <= lastDay.getDate(); i++) {
 
         const day = document.createElement("li");
+        day.classList.add("active");
         day.textContent = i;
-        
+
         // Check the current day is today
         if (
             date.getFullYear() === new Date().getFullYear() &&
@@ -42,7 +48,14 @@ function updateCalendar() {
             day.style.backgroundColor = "red";
             day.style.color = "white";
         }
+        calendarDays.appendChild(day);
+    }
 
+    // Create the next month's days
+    for (let i = 1; calendarDays.children.length < 42; i++) {
+        const day = document.createElement("li");
+        day.textContent = i;
+        day.classList.add("date-inactive");
         calendarDays.appendChild(day);
     }
 }

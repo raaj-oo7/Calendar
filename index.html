@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/Calendar.png" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Calendar</title>
@@ -9,33 +11,33 @@
 
 <body id="darkTheme">
     <div class="app">
-
-        <div class="container">
-            <div class="calendar">
-                <div class="display-month-year">
-                    <button class="icons" id="prevMonth">
-                        <img src="./images/arrow-previous.svg" />
-                    </button>
-                    <div class="month-year-name" id="currentMonthYear"></div>
-                    <button class="icons" id="nextMonth">
-                        <img src="images/arrow-next.svg" />
-                    </button>
-                </div>
-                <ul class="weekday-title">
-                    <li class="weekday-title-name">SUN</li>
-                    <li class="weekday-title-name">MON</li>
-                    <li class="weekday-title-name">TUE</li>
-                    <li class="weekday-title-name">WED</li>
-                    <li class="weekday-title-name">THU</li>
-                    <li class="weekday-title-name">FRI</li>
-                    <li class="weekday-title-name">SAT</li>
-                </ul>
-                <ul class="days" id="calendarDays"></ul>
+        <div class="calendar">
+            <div class="display-month-year">
+                <button class="icons" id="prevMonth">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10.1831 4.175L6.35811 8L10.1831 11.825L8.99977 13L3.99977 8L8.99977 3L10.1831 4.175Z"
+                            fill="#B5BEC6" />
+                    </svg>
+                </button>
+                <div class="month-year-name" id="currentMonthYear"></div>
+                <button class="icons" id="nextMonth">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M5 11.825L8.825 8L5 4.175L6.18333 3L11.1833 8L6.18333 13L5 11.825Z" fill="#B5BEC6" />
+                    </svg>
+                </button>
             </div>
+            <ul class="weekday-title">
+                <li class="weekday-title-name">SUN</li>
+                <li class="weekday-title-name">MON</li>
+                <li class="weekday-title-name">TUE</li>
+                <li class="weekday-title-name">WED</li>
+                <li class="weekday-title-name">THU</li>
+                <li class="weekday-title-name">FRI</li>
+                <li class="weekday-title-name">SAT</li>
+            </ul>
+            <ul class="days" id="calendarDays"></ul>
         </div>
-        <div>
-            <button class="themeButton-light" id="darkThemeButton"></button>
-        </div>
+        <button class="themeButton-light" id="darkThemeButton"></button>
     </div>
     <script src="./main.js"></script>
 </body>

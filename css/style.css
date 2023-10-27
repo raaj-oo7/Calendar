@@ -12,36 +12,26 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-  width: 100%;
-}
-
+html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 .app {
+  position: relative;
+  top: 60px;
+  height: 500px;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.container {
-  margin: auto;
-  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  border-radius: 8px;
   justify-content: center;
-  max-width: fit-content;
 }
 
 .calendar {
-  position: relative;
   background-color: #ffffff;
   display: inline-flex;
   flex-direction: column;
@@ -53,41 +43,14 @@ body {
   box-shadow: 2px 16px 19px 0px #00000017;
 }
 
-#darkThemeButton {
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  height: 55px;
-  width: 55px;
-  border-radius: 50%;
-  border: 0;
-
-  position: relative;
-  right: 20px;
-  bottom: 20px;
-}
-
-.themeButton-light {
-  background: url(../images/light-mode.png);
-}
-
 .display-month-year {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
   align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-}
-
-.theme-button {
-  height: 45px;
-  width: 45px;
 }
 
 .icons {
-  position: relative;
   width: 16px;
   height: 16px;
   border: none;
@@ -96,7 +59,6 @@ body {
 }
 
 .month-year-name {
-  position: relative;
   width: fit-content;
   margin-top: -1px;
   font-family: "AvenirNext LT Pro-Demi", Helvetica;
@@ -114,10 +76,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  position: relative;
   align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
 }
 
 .weekday-title-name {
@@ -127,8 +86,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  position: relative;
-
   color: var(--baseGray-40);
   font-family: "AvenirNext LT Pro-Demi", Helvetica;
   font-weight: 400;
@@ -137,31 +94,11 @@ body {
   line-height: 12px;
 }
 
-.date-inactive {
-  display: flex;
-  flex-direction: column;
-  width: 30px;
-  height: 30px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
-}
-
-.date-active {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-gap: 8px;
-  width: 100%;
   flex: 0 0 auto;
 }
 
@@ -173,15 +110,20 @@ body {
   height: 30px;
   background-color: var(--baseWhite);
   border-radius: 50%;
-  position: relative;
-  color: var(--baseGray-80);
   font-family: "AvenirNext LT Pro-Demi", Helvetica;
   font-weight: 400;
   font-size: 14px;
-  font-style: normal;
   letter-spacing: 0;
   line-height: 20px;
   cursor: pointer;
+}
+
+.active {
+  color: var(--baseGray-80);
+}
+
+.date-inactive {
+  color: var(--baseGray-40);
 }
 
 .days li:hover {
@@ -189,27 +131,63 @@ body {
 }
 
 /* Dark Theme */
+#darkThemeButton {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 0;
+}
+
+.themeButton-light {
+  background: url(../images/light-mode.png);
+}
+
+.theme-button {
+  height: 45px;
+  width: 45px;
+}
+
 .dark-theme {
-  background-color:  var(--gray-1);
+  background-color: var(--gray-1);
 }
 
 .dark-theme .month-year-name {
   color: #fff;
 }
 
-.dark-theme .days li {
-  color: #fff;
+.dark-theme .date-inactive {
+  color: #b7b7b7;
   background-color: #464646;
 }
 
-.dark-theme .days li:hover, .dark-theme .container {
+.dark-theme .active {
+  color: var(--baseWhite);
+  background-color: #464646;
+}
+
+.dark-theme .days li:hover,
+.dark-theme .container {
   background-color: var(--gray-1);
 }
 
-.dark-theme .calendar, .dark-theme .icons {
+.dark-theme .calendar,
+.dark-theme .icons {
   background-color: #464646;
 }
 
 .dark-theme .themeButton-light {
   background: url(../images/dark-mode.png);
+}
+
+@media only screen and (max-width: 500px) {
+  .app {
+    padding: 10px;
+  }
+
+  .calendar {
+    padding: 15px;
+  }
 }
