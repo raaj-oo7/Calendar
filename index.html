@@ -10,6 +10,15 @@
 </head>
 
 <body id="darkTheme">
+    <!-- Theme toggle -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" value="true" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <!-- Calendar -->
     <div class="app">
         <div class="calendar">
             <div class="display-month-year">
@@ -37,8 +46,8 @@
             </ul>
             <ul class="days" id="calendarDays"></ul>
         </div>
-        <button class="themeButton-light" id="darkThemeButton"></button>
     </div>
+
     <script src="./main.js"></script>
 </body>
 

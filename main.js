@@ -4,10 +4,11 @@ const prevMonthButton = document.getElementById("prevMonth");
 const nextMonthButton = document.getElementById("nextMonth");
 const currentMonthYear = document.getElementById("currentMonthYear");
 const calendarDays = document.getElementById("calendarDays");
-const darkThemeButton = document.getElementById("darkThemeButton");
+const themeSwitch = document.getElementById('checkbox');
+const body = document.body;
 let isDarkTheme = false;
 
-// Function to update the calendar display
+// Functions
 function updateCalendar() {
     let date = new Date();
 
@@ -61,27 +62,24 @@ function updateCalendar() {
 }
 updateCalendar();
 
-// Function to toggle the dark theme
-function toggleDarkTheme() {
-    isDarkTheme = !isDarkTheme;
-    if (isDarkTheme) {
-        document.body.classList.add("dark-theme");
+const cachedTheme = localStorage.getItem('theme');
+
+if (cachedTheme) {
+    body.dataset.theme = cachedTheme;
+} else {
+    body.dataset.theme = 'light';
+}
+
+// Function to toggle between light and dark themes
+function toggleTheme() {
+    if (body.dataset.theme === 'light') {
+        body.dataset.theme = 'dark';
+        localStorage.setItem('theme', 'dark');
     } else {
-        document.body.classList.remove("dark-theme");
-    }
-
-    // Store the theme in local storage
-    localStorage.setItem("darkTheme", isDarkTheme);
-}
-
-// Dark theme before refresh window then this function will be work
-function loadTheme() {
-    isDarkTheme = localStorage.getItem("darkTheme") === "true";
-    if (isDarkTheme) {
-        document.body.classList.add("dark-theme");
+        body.dataset.theme = 'light';
+        localStorage.setItem('theme', 'light');
     }
 }
-loadTheme();
 
 // Event listeners for previous and next month buttons
 prevMonthButton.addEventListener("click", function () {
@@ -93,8 +91,11 @@ nextMonthButton.addEventListener("click", function () {
     month++;
     updateCalendar();
 });
+// Set the initial theme switch based on the cached theme
+themeSwitch.checked = body.dataset.theme === 'dark';
 
 // Event listener for toggle theme button
-darkThemeButton.addEventListener("click", function (e) {
-    toggleDarkTheme();
+themeSwitch.addEventListener("click", function (e) {
+    toggleTheme();
+    themeSwitch.checked = body.dataset.theme === 'dark';
 });
