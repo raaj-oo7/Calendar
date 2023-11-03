@@ -64,7 +64,6 @@ body {
 
 .month-year-name {
   width: fit-content;
-  margin-top: -1px;
   font-weight: 400;
   color: var(--baseGray-80);
   font-size: 14px;
@@ -156,12 +155,9 @@ body {
 
 .switch {
   background-color: #ccc;
-  bottom: 0;
+  inset: 0;
   cursor: pointer;
-  left: 0;
   position: absolute;
-  right: 0;
-  top: 0;
   transition: .4s;
 }
 
